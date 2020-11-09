@@ -19,24 +19,25 @@ class ViewController: UIViewController {
     var hasOp = false
     var canClear = true
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    enum Operation {
+        case Unary(String, (Double)->Double)
+        case Binary(String, (Double, Double)->Double)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    private var knownOps = [
+        "+":Operation.Binary("+", +),
+        "-":Operation.Binary("−"){ $1 - $0 },
+        "*":Operation.Binary("*", *),
+        "/":Operation.Binary("/"){ $1 / $0 }
+    ]
     
-    @IBAction func handleButtonPress(sender: UIButton) {
+    @IBAction func handleButtonPress(_ sender: UIButton) {
         if canClear {
             resultLabel.text = ""
             canClear = false
         }
-        let currentText = resultLabel.text!
-        let textLabel = sender.titleLabel?.text
-        if let text = textLabel {
+        let t = resultLabel.text!
+        if let text = sender.titleLabel?.text {
             switch text {
             case "+", "*", "/", "-":
                 if hasOp {
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
                 op = text
                 isFirstNumber = false
                 hasOp = true
-                resultLabel.text = "\(currentText) \(op) "
+                resultLabel.text = "\(t)\(op)"
                 break
             case "=":
                 isFirstNumber = true
@@ -54,36 +55,33 @@ class ViewController: UIViewController {
                 let result = calculate()
                 resultLabel.text = "\(result)"
                 break
+            case "CE":
+                _ = resultLabel.text?.popLast()
+            case "C":
+                resultLabel.text = nil
             default:
                 if isFirstNumber {
                     firstNumberText = "\(firstNumberText)\(text)"
                 } else {
                     secondNumberText = "\(secondNumberText)\(text)"
                 }
-                resultLabel.text = "\(currentText)\(text)"
+                resultLabel.text = "\(t)\(text)"
                 break;
             }
         }
     }
     
-    func calculate() -> Double {
-        let firstNumber = Double(firstNumberText)!
-        let secondNumber = Double(secondNumberText)!
-        firstNumberText = ""
-        secondNumberText = ""
-        switch op {
-        case "+":
-            return firstNumber + secondNumber
-        case "-":
-            return firstNumber - secondNumber
-        case "*":
-            return firstNumber * secondNumber
-        case "/":
-            return firstNumber / secondNumber
-        default:
-            return 0
-        }
+    func calculate<T:NSNumber>(_ firstNumber:T, _ secondNumber:T, op: (T,T)->T) -> T {
+        return op(firstNumber, secondNumber)
     }
+    
+    
+    func add<T:NSNumber>(_ n1:T,_ n2:T) -> T { return n1+n2 }
+    func sub<T:NSNumber>(_ n1:T,_ n2:T) -> T { return n1-n2 }
+    func mul<T:NSNumber>(_ n1:T,_ n2:T) -> T { return n1*n2 }
+    func div<T:NSNumber>(_ n1:T,_ n2:T) -> T { return n1/n2 }
+    
+    
     
 }
 

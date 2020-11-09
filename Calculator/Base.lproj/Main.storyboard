@@ -55,7 +55,7 @@
                                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LNm-qq-KtX"/>
+                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kqy-JA-zEL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -100,7 +100,7 @@
                                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="stZ-e2-JS7"/>
+                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="led-S2-lo0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -125,7 +125,7 @@
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPR-wX-BF0"/>
+                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3u-Y9-gEB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pla-ZY-sWU">
@@ -205,7 +205,7 @@
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Epp-Hg-20v"/>
+                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tFq-AJ-LXw"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxz-2c-FDN">
@@ -215,7 +215,7 @@
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubH-5H-fRd"/>
+                                                    <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qey-AW-o1F"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDk-wi-2sH">
@@ -258,7 +258,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultLabel" destination="7U9-Na-sr1" id="hZ0-Na-72d"/>
+                        <outlet property="resultLabel" destination="7U9-Na-sr1" id="7ff-NT-nc0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
