@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  calc-sb
+//  calc-uikit
 //
-//  Created by frezcirno on 2020/11/11.
+//  Created by frezcirno on 2020/11/12.
 //
 
 import UIKit

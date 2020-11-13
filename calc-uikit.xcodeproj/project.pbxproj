@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9BEAE40255BF68500D065B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEAE3F255BF68500D065B3 /* AppDelegate.swift */; };
-		A9BEAE42255BF68500D065B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEAE41255BF68500D065B3 /* SceneDelegate.swift */; };
-		A9BEAE44255BF68500D065B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEAE43255BF68500D065B3 /* ViewController.swift */; };
-		A9BEAE47255BF68500D065B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BEAE45255BF68500D065B3 /* Main.storyboard */; };
-		A9BEAE49255BF69400D065B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BEAE48255BF69400D065B3 /* Assets.xcassets */; };
+		A933DFB1255CFCA700E6FA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A933DFB0255CFCA700E6FA0E /* Assets.xcassets */; };
+		A933DFBD255CFD7200E6FA0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933DFB9255CFD7200E6FA0E /* AppDelegate.swift */; };
+		A933DFBE255CFD7200E6FA0E /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933DFBA255CFD7200E6FA0E /* Core.swift */; };
+		A933DFBF255CFD7200E6FA0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933DFBB255CFD7200E6FA0E /* ViewController.swift */; };
+		A933DFC0255CFD7200E6FA0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933DFBC255CFD7200E6FA0E /* SceneDelegate.swift */; };
+		A933DFCA255CFE2A00E6FA0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A933DFC8255CFE2A00E6FA0E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A9BEAE3C255BF68500D065B3 /* calc-sb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calc-sb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9BEAE3F255BF68500D065B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9BEAE41255BF68500D065B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A9BEAE43255BF68500D065B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A9BEAE46255BF68500D065B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A9BEAE48255BF69400D065B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A9BEAE4D255BF69400D065B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A933DFA5255CFCA300E6FA0E /* calc-uikit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calc-uikit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A933DFB0255CFCA700E6FA0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A933DFB5255CFCA700E6FA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A933DFB9255CFD7200E6FA0E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A933DFBA255CFD7200E6FA0E /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		A933DFBB255CFD7200E6FA0E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A933DFBC255CFD7200E6FA0E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A933DFC9255CFE2A00E6FA0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A9BEAE39255BF68500D065B3 /* Frameworks */ = {
+		A933DFA2255CFCA300E6FA0E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,10 +37,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A933DFA6255CFCA300E6FA0E /* calc-uikit */ = {
+			isa = PBXGroup;
+			children = (
+				A933DFC8255CFE2A00E6FA0E /* Main.storyboard */,
+				A933DFB9255CFD7200E6FA0E /* AppDelegate.swift */,
+				A933DFBA255CFD7200E6FA0E /* Core.swift */,
+				A933DFBC255CFD7200E6FA0E /* SceneDelegate.swift */,
+				A933DFBB255CFD7200E6FA0E /* ViewController.swift */,
+				A933DFB0255CFCA700E6FA0E /* Assets.xcassets */,
+				A933DFB5255CFCA700E6FA0E /* Info.plist */,
+			);
+			path = "calc-uikit";
+			sourceTree = "<group>";
+		};
 		A9BEAE33255BF68500D065B3 = {
 			isa = PBXGroup;
 			children = (
-				A9BEAE3E255BF68500D065B3 /* calc-sb */,
+				A933DFA6255CFCA300E6FA0E /* calc-uikit */,
 				A9BEAE3D255BF68500D065B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,42 +62,29 @@
 		A9BEAE3D255BF68500D065B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9BEAE3C255BF68500D065B3 /* calc-sb.app */,
+				A933DFA5255CFCA300E6FA0E /* calc-uikit.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A9BEAE3E255BF68500D065B3 /* calc-sb */ = {
-			isa = PBXGroup;
-			children = (
-				A9BEAE3F255BF68500D065B3 /* AppDelegate.swift */,
-				A9BEAE41255BF68500D065B3 /* SceneDelegate.swift */,
-				A9BEAE43255BF68500D065B3 /* ViewController.swift */,
-				A9BEAE45255BF68500D065B3 /* Main.storyboard */,
-				A9BEAE48255BF69400D065B3 /* Assets.xcassets */,
-				A9BEAE4D255BF69400D065B3 /* Info.plist */,
-			);
-			path = "calc-sb";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A9BEAE3B255BF68500D065B3 /* calc-sb */ = {
+		A933DFA4255CFCA300E6FA0E /* calc-uikit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9BEAE50255BF69400D065B3 /* Build configuration list for PBXNativeTarget "calc-sb" */;
+			buildConfigurationList = A933DFB6255CFCA700E6FA0E /* Build configuration list for PBXNativeTarget "calc-uikit" */;
 			buildPhases = (
-				A9BEAE38255BF68500D065B3 /* Sources */,
-				A9BEAE39255BF68500D065B3 /* Frameworks */,
-				A9BEAE3A255BF68500D065B3 /* Resources */,
+				A933DFA1255CFCA300E6FA0E /* Sources */,
+				A933DFA2255CFCA300E6FA0E /* Frameworks */,
+				A933DFA3255CFCA300E6FA0E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "calc-sb";
-			productName = "calc-sb";
-			productReference = A9BEAE3C255BF68500D065B3 /* calc-sb.app */;
+			name = "calc-uikit";
+			productName = "calc-uikit";
+			productReference = A933DFA5255CFCA300E6FA0E /* calc-uikit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -93,12 +96,13 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					A9BEAE3B255BF68500D065B3 = {
+					A933DFA4255CFCA300E6FA0E = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
 					};
 				};
 			};
-			buildConfigurationList = A9BEAE37255BF68500D065B3 /* Build configuration list for PBXProject "calc-sb" */;
+			buildConfigurationList = A9BEAE37255BF68500D065B3 /* Build configuration list for PBXProject "calc-uikit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,49 +115,89 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A9BEAE3B255BF68500D065B3 /* calc-sb */,
+				A933DFA4255CFCA300E6FA0E /* calc-uikit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A9BEAE3A255BF68500D065B3 /* Resources */ = {
+		A933DFA3255CFCA300E6FA0E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9BEAE49255BF69400D065B3 /* Assets.xcassets in Resources */,
-				A9BEAE47255BF68500D065B3 /* Main.storyboard in Resources */,
+				A933DFB1255CFCA700E6FA0E /* Assets.xcassets in Resources */,
+				A933DFCA255CFE2A00E6FA0E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A9BEAE38255BF68500D065B3 /* Sources */ = {
+		A933DFA1255CFCA300E6FA0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9BEAE44255BF68500D065B3 /* ViewController.swift in Sources */,
-				A9BEAE40255BF68500D065B3 /* AppDelegate.swift in Sources */,
-				A9BEAE42255BF68500D065B3 /* SceneDelegate.swift in Sources */,
+				A933DFBF255CFD7200E6FA0E /* ViewController.swift in Sources */,
+				A933DFBE255CFD7200E6FA0E /* Core.swift in Sources */,
+				A933DFBD255CFD7200E6FA0E /* AppDelegate.swift in Sources */,
+				A933DFC0255CFD7200E6FA0E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A9BEAE45255BF68500D065B3 /* Main.storyboard */ = {
+		A933DFC8255CFE2A00E6FA0E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A9BEAE46255BF68500D065B3 /* Base */,
+				A933DFC9255CFE2A00E6FA0E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
-			usesTabs = 0;
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A933DFB7255CFCA700E6FA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "calc-uikit/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tzx.calc-uikit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A933DFB8255CFCA700E6FA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "calc-uikit/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tzx.calc-uikit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A9BEAE4E255BF69400D065B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -208,7 +252,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -263,6 +307,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -270,59 +315,23 @@
 			};
 			name = Release;
 		};
-		A9BEAE51255BF69400D065B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "calc-sb/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "tzx.calc-sb";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A9BEAE52255BF69400D065B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "calc-sb/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "tzx.calc-sb";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A9BEAE37255BF68500D065B3 /* Build configuration list for PBXProject "calc-sb" */ = {
+		A933DFB6255CFCA700E6FA0E /* Build configuration list for PBXNativeTarget "calc-uikit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A9BEAE4E255BF69400D065B3 /* Debug */,
-				A9BEAE4F255BF69400D065B3 /* Release */,
+				A933DFB7255CFCA700E6FA0E /* Debug */,
+				A933DFB8255CFCA700E6FA0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9BEAE50255BF69400D065B3 /* Build configuration list for PBXNativeTarget "calc-sb" */ = {
+		A9BEAE37255BF68500D065B3 /* Build configuration list for PBXProject "calc-uikit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A9BEAE51255BF69400D065B3 /* Debug */,
-				A9BEAE52255BF69400D065B3 /* Release */,
+				A9BEAE4E255BF69400D065B3 /* Debug */,
+				A9BEAE4F255BF69400D065B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,115 +1,129 @@
+import Foundation
 
-
-enum Optr {
-    case EQU, LP, RP, POS, NEG, ADD, SUB, MUL, DIV, POW, MOD
+enum Optr: Int {
+    case EQU, LP, RP, POS, NEG, ADD, SUB, MUL, DIV, POW, MOD, SQRT
 }
 
 let order = [  //优先级表
-    /*tp\nw '=', '(', ')', 'p', 'n', '+', '-', '*', 'd', '^', '%' */
-    /* = */ ['=', '<', 'x', '<', '<', '<', '<', '<', '<', '<', '<'],
-    /* ( */ ['x', '<', '=', '<', '<', '<', '<', '<', '<', '<', '<'],
-    /* ) */ ['>', '?', '>', 'x', 'x', '>', '>', '>', '>', '>', '>'],
-    /* p */ ['>', '<', '>', '<', '<', '>', '>', '>', '>', '>', '>'],
-    /* n */ ['>', '<', '>', '<', '<', '>', '>', '>', '>', '>', '>'],
-    /* + */ ['>', '<', '>', '<', '<', '>', '>', '<', '<', '<', '<'],
-    /* - */ ['>', '<', '>', '<', '<', '>', '>', '<', '<', '<', '<'],
-    /* * */ ['>', '<', '>', '<', '<', '>', '>', '>', '>', '<', '>'],
-    /*div*/ ['>', '<', '>', '<', '<', '>', '>', '>', '>', '<', '>'],
-    /* ^ */ ['>', '<', '>', '<', '<', '>', '>', '>', '>', '>', '>'],
-    /* % */[ '>', '<', '>', '<', '<', '>', '>', '>', '>', '<', '>']
+ //    tp\nw "=", "(", ")", "p", "n", "+", "-", "*", "d", "^", "%", "q"
+    /* = */ ["=", "<", "x", "<", "<", "<", "<", "<", "<", "<", "<", "<"],
+    /* ( */ ["x", "<", "=", "<", "<", "<", "<", "<", "<", "<", "<", "<"],
+    /* ) */ [">", "?", ">", "x", "x", ">", ">", ">", ">", ">", ">", "x"],
+    /* p */ [">", "<", ">", "<", "<", ">", ">", ">", ">", ">", ">", "<"],
+    /* n */ [">", "<", ">", "<", "<", ">", ">", ">", ">", ">", ">", "<"],
+    /* + */ [">", "<", ">", "<", "<", ">", ">", "<", "<", "<", "<", "<"],
+    /* - */ [">", "<", ">", "<", "<", ">", ">", "<", "<", "<", "<", "<"],
+    /* * */ [">", "<", ">", "<", "<", ">", ">", ">", ">", "<", ">", "<"],
+    /*div*/ [">", "<", ">", "<", "<", ">", ">", ">", ">", "<", ">", "<"],
+    /* ^ */ [">", "<", ">", "<", "<", ">", ">", ">", ">", ">", ">", "<"],
+    /* % */ [">", "<", ">", "<", "<", ">", ">", ">", ">", "<", ">", "<"],
+    /*sqr*/ [">", "<", ">", "<", "<", ">", ">", ">", ">", ">", ">", "<"]
 ]
 
-func do_calc(_ op: Optr, _ op1: Double, _ op2: Double) -> double {
+func do_calc(_ op: Optr, _ op1: Double, _ op2: Double) throws -> Double {
     switch op {
-        case .POS: return op1
-        case .NEG: return -op1
-        case .ADD: return op1 + op2
-        case .SUB: return op1 - op2
-        case .MUL: return op1 * op2
-        case .POW: return pow(op1, op2)
-        case .DIV:
-            if (op2 == 0) {
-                cerr << "错误：除数为0" << endl
-                exit(-1)
-            }
-            return op1 / op2
-        case .MOD:
-            if (op2 == 0) {
-                cerr << "错误：除数为0" << endl
-                exit(-1)
-            }
-            return fmod(op1, op2)
-    }
-    return 0
-}
-
-
-func dispatch(_ op: Character, _ lastObj: Optr) -> Optr
-{
-    switch op {
-        case '+': return ((lastObj == -1 || lastObj == .RP) ? .ADD : .POS)
-        case '-': return ((lastObj == -1 || lastObj == .RP) ? .SUB : .NEG)
-        case '*': return .MUL
-        case '/': return .DIV
-        case '^': return .POW
-        case '%': return .MOD
-        case '=':
-        case '\0': return .EQU
-        case '(':
-            if (lastObj == .RP) {
-                cerr << "错误：两对括号间缺少运算符" << endl
-                exit(-1)
-            }
-            return .LP
-        case ')':
-            if (lastObj == .LP) {
-                cerr << "错误：括号内没有内容" << endl
-                exit(-1)
-            }
-            return .RP
-        default: cerr << "错误：未知的运算符" << endl exit(-1)
+    case .POS: return op1
+    case .NEG: return -op1
+    case .ADD: return op1 + op2
+    case .SUB: return op1 - op2
+    case .MUL: return op1 * op2
+    case .POW: return pow(op1, op2)
+    case .DIV:
+        if op2 == 0 {
+            throw CalcError.ArithmeticError(detail: "Divide by 0")
+        }
+        return op1 / op2
+    case .MOD:
+        if op2 == 0 {
+            throw CalcError.ArithmeticError(detail: "Mod 0")
+        }
+        return op1.truncatingRemainder(dividingBy: op2)
+    case .SQRT:
+        if op1 < 0 {
+            throw CalcError.ArithmeticError(detail: "Sqrt x < 0")
+        }
+        return sqrt(op1)
+    default: throw CalcError.ArithmeticError(detail: "Unknown operation")
     }
 }
 
 
-func eval(_ s: String) -> Double
+func dispatch(_ op: Character, _ lastObj: Optr) throws -> Optr
 {
-    let opnd = [Double]
-    let optr = [Optr]
+    switch op {
+    case "+": return ((lastObj == .EQU || lastObj == .RP) ? .ADD : .POS)
+    case "-": return ((lastObj == .EQU || lastObj == .RP) ? .SUB : .NEG)
+    case "*": return .MUL
+    case "÷": return .DIV
+    case "^": return .POW
+    case "%": return .MOD
+    case "=": return .EQU
+    case "(":
+        if lastObj == .RP {
+            throw CalcError.SyntaxError(detail: ") followed by (")
+        }
+        return .LP
+    case ")":
+        if lastObj == .LP {
+            throw CalcError.SyntaxError(detail: "Empty ()")
+        }
+        return .RP
+    case "√": return .SQRT
+    default: throw CalcError.InputError(detail: "Unknown operator")
+    }
+}
+
+
+func eval(_ expr: String) throws -> Double {
+    var s = expr
+    var opnd: [Double] = []
+    var optr = [Optr.EQU]
     var lastObj = Optr.EQU
-    optr.append(.EQU)
-    while !optr.empty() {
-        while isblank(*s) { s++ }
-        if isdigit(*s) {  //数字
-            var x: Double
-            var len: Int
-            sscanf(s, "%lf%n", &x, &len)
-            opnd.append(x)
-            s += len
-            lastObj = -1
+    var ptr = s.startIndex
+    
+    if s.last != "=" {
+        s.append("=")
+    }
+
+    while !optr.isEmpty {
+        let ch = s[ptr]
+        while ch.isWhitespace { ptr = s.index(after: ptr) }
+        if ch.isNumber {  //数字
+            let subs = String(s[ptr...])
+            let scanner = Scanner(string: subs)
+            opnd.append(scanner.scanDouble()!)
+            ptr = s.index(ptr, offsetBy: subs.distance(from: subs.startIndex, to: scanner.currentIndex))
+            lastObj = .EQU
         } else {  //操作符
-            var newOp = dispatch(*s, lastObj)
-            switch order[optr.top()][newOp] {
-                case '<':
-                    optr.append(newOp); s++
-                    lastObj = newOp
-                case '=': //退栈
-                    optr.popLast(); s++
-                    lastObj = newOp
-                case '>': {
-                    var op = optr.popLast()
-                    if case let (op == .POS || op == .NEG) {
-                        double opnd1 = opnd.popLast()
-                        opnd.append(do_calc(op, opnd1, 0))
-                    } else {
-                        double opnd2 = opnd.popLast()
-                        double opnd1 = opnd.popLast()
-                        opnd.append(do_calc(op, opnd1, opnd2))
-                    }
+            let newOp = try dispatch(ch, lastObj)
+            switch order[optr.last!.rawValue][newOp.rawValue] {
+            case "<":
+                optr.append(newOp)
+                ptr = s.index(after: ptr)
+                lastObj = newOp
+            case "=": //退栈
+                _ = optr.popLast()
+                ptr = s.index(after: ptr)
+                lastObj = newOp
+            case ">":
+                let op = optr.popLast()!
+                if op == .POS || op == .NEG || op == .SQRT {
+                    let opnd1 = opnd.popLast()!
+                    opnd.append(try do_calc(op, opnd1, 0))
+                } else {
+                    let opnd2 = opnd.popLast()!
+                    let opnd1 = opnd.popLast()!
+                    opnd.append(try do_calc(op, opnd1, opnd2))
                 }
-                default: cerr << "请检查表达式是否有误" << endl; exit(-1)
+            default: throw CalcError.SyntaxError(detail: "invalid expression")
             }
         }
     }
-    return opnd.top()
+    return opnd.last!
+}
+
+enum CalcError: Error {
+    case ArithmeticError(detail: String)
+    case SyntaxError(detail: String)
+    case InputError(detail: String)
 }
