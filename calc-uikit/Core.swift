@@ -73,19 +73,39 @@ func dispatch(_ op: Character, _ lastObj: Optr?) throws -> Optr
     switch op {
     case "+":
         switch lastObj {
-        case .EQU, .LP, .POS, .NEG, .SQRT: return .POS
+        case .EQU, .LP, .POS, .NEG, .SQRT, .ADD, .SUB, .MUL, .DIV, .MOD, .POW: return .POS
         default: return .ADD
         }
     case "-":
         switch lastObj {
-        case .EQU, .LP, .POS, .NEG, .SQRT: return .NEG
+        case .EQU, .LP, .POS, .NEG, .SQRT, .ADD, .SUB, .MUL, .DIV, .MOD, .POW: return .NEG
         default: return .SUB
         }
-    case "*": return .MUL
-    case "÷": return .DIV
-    case "^": return .POW
-    case "%": return .MOD
-    case "=": return .EQU
+    case "*":
+        guard lastObj == nil else {
+            throw CalcError.SyntaxError(detail: "Expect a number")
+        }
+        return .MUL
+    case "÷":
+        guard lastObj == nil else {
+            throw CalcError.SyntaxError(detail: "Expect a number")
+        }
+        return .DIV
+    case "^":
+        guard lastObj == nil else {
+            throw CalcError.SyntaxError(detail: "Expect a number")
+        }
+        return .POW
+    case "%":
+        guard lastObj == nil else {
+            throw CalcError.SyntaxError(detail: "Expect a number")
+        }
+        return .MOD
+    case "=":
+        guard lastObj == nil else {
+            throw CalcError.SyntaxError(detail: "Expect a number")
+        }
+        return .EQU
     case "(":
         if lastObj == .RP {
             throw CalcError.SyntaxError(detail: ") followed by (")
@@ -129,15 +149,15 @@ func eval(_ expr: String) throws -> Double {
             logger.log("- Got an operator: \(newOp)")
             switch order[optr.last!.rawValue][newOp.rawValue] {
             case "<":
+                logger.log("- - Push")
                 optr.append(newOp)
                 ptr = s.index(after: ptr)
                 lastObj = newOp
-                logger.log("- - Push")
             case "=": //退栈
+                logger.log("- - Pop")
                 _ = optr.popLast()
                 ptr = s.index(after: ptr)
-                lastObj = newOp
-                logger.log("- - Pop")
+                lastObj = nil // 括号规约成数字
             case ">":
                 let op = optr.popLast()!
                 logger.log("- - Last is: \(op)")
