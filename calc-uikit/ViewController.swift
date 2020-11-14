@@ -21,11 +21,11 @@ class ViewController: UIViewController {
                     let result = try eval(resultLabel.text!)
                     resultLabel.text = String(result)
                 } catch let CalcError.ArithmeticError(reason) {
-                    resultLabel.text = reason
+                    resultLabel.text = "Error: "+reason
                 } catch let CalcError.SyntaxError(reason) {
-                    resultLabel.text = reason
+                    resultLabel.text = "Error: "+reason
                 } catch let CalcError.InputError(reason) {
-                    resultLabel.text = reason
+                    resultLabel.text = "Error: "+reason
                 } catch _ {
                     resultLabel.text = "Error"
                 }
